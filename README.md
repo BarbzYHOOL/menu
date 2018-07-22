@@ -67,19 +67,33 @@ Use `menu_selected_index` to retrieve the selected item index from `$argv`.
 ### Example
 
 ```fish
+## Menu list
 set -l items "Batman" "Flash" "Superman" "Aquaman"
 
+## Menu options
 set -l menu_hover_item_style -o black -b yellow
 set -l menu_cursor_glyph ▶
 set -l menu_cursor_glyph_style -o
 
+## Question before menu with 2 seconds timer
+set -l choice_timer 2
+echo "Choose a hero in $choice_timer seconds:"
+
+for second in (seq $choice_timer)[-1..1]
+    printf "$second\n"
+    sleep 1
+end
+
+## Menu
 menu $items
-echo "this is your choice: $items[$menu_selected_index]"
+
+## Result
+echo "This is your choice: $items[$menu_selected_index]"
 
 if test $items[$menu_selected_index] = "Flash"
-  echo "good choice"
+  echo "Good choice"
 else
-  echo "bad choice"
+  echo "Bad choice"
 end
 ```
 
