@@ -74,6 +74,7 @@ set -l menu_cursor_glyph ▶
 set -l menu_cursor_glyph_style -o
 
 menu $items
+echo $items[$menu_selected_index]
 ```
 
 [slack-link]: https://fisherman-wharf.herokuapp.com
