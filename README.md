@@ -74,7 +74,13 @@ set -l menu_cursor_glyph ▶
 set -l menu_cursor_glyph_style -o
 
 menu $items
-echo $items[$menu_selected_index]
+echo "this is your choice: $items[$menu_selected_index]"
+
+if test $items[$menu_selected_index] = "Flash"
+  echo "good choice"
+else
+  echo "bad choice"
+end
 ```
 
 [slack-link]: https://fisherman-wharf.herokuapp.com
